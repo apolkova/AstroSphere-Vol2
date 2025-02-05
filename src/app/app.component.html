@@ -1,3 +1,29 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink="/tabs/tab1" routerDirection="root">NASA Library</ion-item>
+        <ion-item routerLink="/tabs/tab2" routerDirection="root">Space Quiz</ion-item>
+        <ion-item routerLink="/tabs/tab3" routerDirection="root">Space News</ion-item>
+        <ion-item routerLink="/tab4" routerDirection="forward">Asteroids NeoWs</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Space Explorer</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-router-outlet></ion-router-outlet>
+  </div>
 </ion-app>
