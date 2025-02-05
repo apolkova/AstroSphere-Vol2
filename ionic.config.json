@@ -1,0 +1,7 @@
+{
+  "name": "AstroSphere",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
