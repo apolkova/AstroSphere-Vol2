@@ -1,17 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Space News</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Space News</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card *ngFor="let article of newsArticles">
+    <ion-card-header>
+      <ion-card-title>{{ article.title }}</ion-card-title>
+      <ion-card-subtitle>{{ article.publishedAt | date }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-subtitle>{{ article.summary }}</ion-card-subtitle>
+    <ion-card-content>
+      <ion-button *ngIf="article.url" fill="outline" color="primary" (click)="openArticle(article.url)">
+        Read More
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-spinner *ngIf="isLoading" color="primary" class="loading-spinner"></ion-spinner>
+  <p *ngIf="!isLoading && newsArticles.length === 0" class="no-news">No news articles available.</p>
 </ion-content>
